@@ -4,17 +4,19 @@
 [ext_resource type="Script" uid="uid://bal7hjgwwjut8" path="res://main_player.gd" id="1_v7c7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7c7x"]
-size = Vector2(70, 209)
+size = Vector2(39, 117)
 
 [node name="MainPlayer" type="CharacterBody2D"]
 script = ExtResource("1_v7c7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.36521825, 0.37839788)
+position = Vector2(0, 3.8146973e-06)
+scale = Vector2(0.20402594, 0.21391064)
 texture = ExtResource("1_mlqkk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
+position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_v7c7x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
