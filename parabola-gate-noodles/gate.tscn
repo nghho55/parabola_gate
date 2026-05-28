@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://davk056rjkm76"]
+
+[ext_resource type="Texture2D" uid="uid://c0wvdq7lks4gq" path="res://assets/parabola_gate.png" id="1_15vrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikl61"]
+size = Vector2(264, 208)
+
+[node name="Gate" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_15vrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 23)
+shape = SubResource("RectangleShape2D_ikl61")
