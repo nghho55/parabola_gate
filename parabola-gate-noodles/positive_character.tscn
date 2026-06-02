@@ -1,7 +1,18 @@
-[gd_scene format=3 uid="uid://cov5wib3nu7cy"]
+[gd_scene load_steps=3 format=3 uid="uid://cov5wib3nu7cy"]
+
+[ext_resource type="Texture2D" uid="uid://byl55c7c7kktv" path="res://assets/pos_charac.png" id="1_yt5r8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofin8"]
+size = Vector2(232, 276)
 
 [node name="PositiveCharacter" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_yt5r8")
+region_enabled = true
+region_rect = Rect2(92.28717, 9.496216, 253.33325, 287.17026)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 10)
+shape = SubResource("RectangleShape2D_ofin8")
