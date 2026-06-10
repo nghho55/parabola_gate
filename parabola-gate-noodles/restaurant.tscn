@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dxk54bls70iba"]
+[gd_scene load_steps=37 format=4 uid="uid://dxk54bls70iba"]
 
 [ext_resource type="Script" uid="uid://d08fcf260akw4" path="res://restaurant.gd" id="1_ilmu6"]
 [ext_resource type="Texture2D" uid="uid://cdn8h5qxdpotd" path="res://assets/table.png" id="1_mtvav"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b07ti5x6kf2qd" path="res://assets/bell-pepper-chopped.png" id="14_hlp4a"]
 [ext_resource type="Texture2D" uid="uid://c3tmcbqax0d8k" path="res://assets/cabbage-chopped.png" id="15_vs3kd"]
 [ext_resource type="Texture2D" uid="uid://cktwq2w6uvx5t" path="res://assets/salmon_not_in_tray.png" id="16_womg2"]
+[ext_resource type="PackedScene" uid="uid://cov5wib3nu7cy" path="res://positive_character.tscn" id="17_mv1iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pkq2"]
 texture = ExtResource("1_mtvav")
@@ -1637,6 +1638,9 @@ offset_top = 564.0
 offset_right = 224.0
 offset_bottom = 627.0
 text = "Throw away all =("
+
+[node name="NPC" parent="." instance=ExtResource("17_mv1iw")]
+position = Vector2(-115, 224)
 
 [node name="Menu" type="Area2D" parent="."]
 visible = false
