@@ -18,8 +18,3 @@ region_rect = Rect2(92.28717, 9.496216, 253.33325, 287.17026)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 10)
 shape = SubResource("RectangleShape2D_ofin8")
-
-[node name="MarkerA" type="Marker2D" parent="."]
-
-[node name="MarkerB" type="Marker2D" parent="."]
-position = Vector2(1460, 0)

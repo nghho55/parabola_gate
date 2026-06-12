@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dxk54bls70iba"]
+[gd_scene load_steps=39 format=4 uid="uid://dxk54bls70iba"]
 
 [ext_resource type="Script" uid="uid://d08fcf260akw4" path="res://restaurant.gd" id="1_ilmu6"]
 [ext_resource type="Texture2D" uid="uid://cdn8h5qxdpotd" path="res://assets/table.png" id="1_mtvav"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c3tmcbqax0d8k" path="res://assets/cabbage-chopped.png" id="15_vs3kd"]
 [ext_resource type="Texture2D" uid="uid://cktwq2w6uvx5t" path="res://assets/salmon_not_in_tray.png" id="16_womg2"]
 [ext_resource type="PackedScene" uid="uid://cov5wib3nu7cy" path="res://positive_character.tscn" id="17_mv1iw"]
+[ext_resource type="Texture2D" uid="uid://bh7xl2yvqet5n" path="res://assets/speak.png" id="17_obl2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pkq2"]
 texture = ExtResource("1_mtvav")
@@ -1364,6 +1365,9 @@ radius = 30.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wfd3"]
 size = Vector2(79, 52)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wfd3"]
+radius = 81.055534
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji0jg"]
 size = Vector2(555, 647)
 
@@ -1640,7 +1644,23 @@ offset_bottom = 627.0
 text = "Throw away all =("
 
 [node name="NPC" parent="." instance=ExtResource("17_mv1iw")]
-position = Vector2(-115, 224)
+position = Vector2(-190, 224)
+
+[node name="Speak" type="Area2D" parent="."]
+position = Vector2(761, 108)
+
+[node name="Sprite2D" type="Sprite2D" parent="Speak"]
+texture = ExtResource("17_obl2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speak"]
+shape = SubResource("CircleShape2D_6wfd3")
+
+[node name="Label" type="Label" parent="Speak"]
+offset_left = -70.0
+offset_top = -37.0
+offset_right = 49.0
+offset_bottom = 33.0
+text = "asdfasdfds"
 
 [node name="Menu" type="Area2D" parent="."]
 visible = false
@@ -1653,3 +1673,9 @@ texture = ExtResource("12_yamf8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu"]
 position = Vector2(596.5, 323.5)
 shape = SubResource("RectangleShape2D_ji0jg")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-190, 224)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1303, 224)

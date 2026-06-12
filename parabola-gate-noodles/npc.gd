@@ -1,17 +1,18 @@
 extends CharacterBody2D
 
-
 const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
 
-var point_a = $MarkerA.global_position
-var point_b = $MarkerB.global_position
-var middle = (point_a + point_b) / 2.0
+@onready var marker_a = get_parent().get_node("Marker2D")
+@onready var marker_b = get_parent().get_node("Marker2D2")
 
-@onready var points = [point_a, middle, point_b]
+@onready var points = [
+	marker_a.global_position,
+	marker_b.global_position
+]
 
 var current_target := 0
-var waiting = false
+var waiting := false
+var stopped_at_middle := false
 
 func _physics_process(delta: float) -> void:
 	if waiting:
@@ -19,11 +20,24 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var target = points[current_target]
+	var midpoint = (points[0] + points[1]) / 2.0
+	
 	velocity = global_position.direction_to(target) * SPEED
 	move_and_slide()
 	
-	if global_position.distance_to(target) < 400:
-		waiting = true
-		await get_tree().create_timer(2.0).timeout
+		# Stop at midpoint
+	if !stopped_at_middle and global_position.distance_to(midpoint) < 10:
+		stopped_at_middle = true
+		pause_for_2_seconds()
+		return
+	
+	# Reached destination marker
+	if global_position.distance_to(target) < 10:
 		current_target = (current_target + 1) % points.size()
-		waiting = false
+		stopped_at_middle = false
+		pause_for_2_seconds()
+
+func pause_for_2_seconds() -> void:
+	waiting = true
+	await get_tree().create_timer(15.0).timeout
+	waiting = false
