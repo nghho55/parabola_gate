@@ -1647,6 +1647,7 @@ text = "Throw away all =("
 position = Vector2(-190, 224)
 
 [node name="Speak" type="Area2D" parent="."]
+visible = false
 position = Vector2(761, 108)
 
 [node name="Sprite2D" type="Sprite2D" parent="Speak"]
@@ -1660,7 +1661,6 @@ offset_left = -70.0
 offset_top = -37.0
 offset_right = 49.0
 offset_bottom = 33.0
-text = "asdfasdfds"
 
 [node name="Menu" type="Area2D" parent="."]
 visible = false

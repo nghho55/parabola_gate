@@ -25,19 +25,19 @@ func _physics_process(delta: float) -> void:
 	velocity = global_position.direction_to(target) * SPEED
 	move_and_slide()
 	
-		# Stop at midpoint
+	# Stop at midpoint
 	if !stopped_at_middle and global_position.distance_to(midpoint) < 10:
 		stopped_at_middle = true
-		pause_for_2_seconds()
-		return
+		pause_for_15_seconds()
+		$"../Speak".visible = true
 	
 	# Reached destination marker
 	if global_position.distance_to(target) < 10:
 		current_target = (current_target + 1) % points.size()
 		stopped_at_middle = false
-		pause_for_2_seconds()
 
-func pause_for_2_seconds() -> void:
+func pause_for_15_seconds() -> void:
 	waiting = true
 	await get_tree().create_timer(15.0).timeout
+	$"../Speak".visible = false
 	waiting = false
